@@ -5,8 +5,9 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-
+import { useToast } from "@/app/hooks/use-toast";
 const Signupform = () => {
+  const { toast } = useToast();
   const Router = useRouter();
   const [signupInfo, setSignupInfo] = useState({
     email: "",
@@ -18,12 +19,29 @@ const Signupform = () => {
   const SignupHandler = async () => {
     setIsLoading(true);
     try {
-      console.log(signupInfo);
-
-      await axios.post("/api/register", signupInfo);
+      await axios
+        .post("/api/register", signupInfo)
+        .then((res) => {
+          if (res.status === 200) {
+            Router.push("/sign-in");
+          }
+        })
+        .catch((error) => {
+          if (error) {
+            toast({
+              title: "something went wrong",
+              description: error.response.statusText,
+            });
+          }
+        });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
+      setSignupInfo({
+        email: "",
+        password: "",
+        name: "",
+      });
       setIsLoading(false);
     }
   };

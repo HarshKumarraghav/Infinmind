@@ -1,4 +1,5 @@
 import Signupform from "@/components/Forms/Signupform";
+import { Toaster } from "@/components/ui/toaster";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
@@ -31,6 +32,7 @@ const page = () => {
           </Link>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
