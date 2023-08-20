@@ -5,10 +5,17 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { useToast } from "@/app/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
+import { signIn, useSession } from "next-auth/react";
 const Signupform = () => {
-  const { toast } = useToast();
+  const session = useSession();
   const Router = useRouter();
+  useEffect(() => {
+    if (session?.status === "authenticated") {
+      Router.push("/dashboard");
+    }
+  }, [session?.status, Router]);
+  const { toast } = useToast();
   const [signupInfo, setSignupInfo] = useState({
     email: "",
     password: "",
@@ -21,10 +28,10 @@ const Signupform = () => {
     try {
       await axios
         .post("/api/register", signupInfo)
-        .then((res) => {
-          if (res.status === 200) {
-            Router.push("/sign-in");
-          }
+        .then(() => {
+          signIn("credentials", {
+            ...signupInfo,
+          });
         })
         .catch((error) => {
           if (error) {

@@ -4,15 +4,15 @@ export const validateLoginInputs = (
   setValidationErrors: any
 ) => {
   const errors: LoginInfo = {
-    username: "",
+    email: "",
     password: "",
   };
 
   // Validate email
-  if (!loginInfo.username) {
-    errors.username = "Please enter your username";
-  } else if (loginInfo.username.length < 2) {
-    errors.username = "Please enter a valid username";
+  if (!loginInfo.email) {
+    errors.email = "Please enter an email address";
+  } else if (!/\S+@\S+\.\S+/.test(loginInfo.email)) {
+    errors.email = "Please enter a valid email address";
   }
 
   // Validate password

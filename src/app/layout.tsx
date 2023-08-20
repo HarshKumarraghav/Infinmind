@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { AuthContextProvider } from "@/Providers/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <main>{children}</main>
-        <Toaster />
+        <AuthContextProvider>
+          <main>{children}</main>
+          <Toaster />
+        </AuthContextProvider>
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 export type LoginInfo = {
-  username: string;
+  email: string;
   password: string;
 };
 export type SignupInfo = {
