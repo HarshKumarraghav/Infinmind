@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import type { Metadata } from "next";
-import { AuthContextProvider } from "@/Providers/AuthProvider";
+import AuthContextProvider from "@/Providers/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -11,6 +11,8 @@ import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
 const LoginInform = () => {
   const session = useSession();
+  console.log(session);
+
   const { toast } = useToast();
   const Router = useRouter();
   useEffect(() => {
