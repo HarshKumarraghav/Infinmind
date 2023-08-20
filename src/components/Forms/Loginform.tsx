@@ -20,19 +20,28 @@ const LoginInform = () => {
       Router.push("/dashboard");
     }
   }, [session?.status, Router]);
-
+  // State to store login info
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
+  // State to show loading spinner
   const [isLoading, setIsLoading] = useState(false);
-
+  // State to disable button if any of the input is empty
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  // State to store validation errors
+  const [validationErrors, setValidationErrors] = useState({
+    email: "",
+    password: "",
+  });
+  // Function to clear login info
   const ClearLoginInfo = () => {
     setLoginInfo({
       email: "",
       password: "",
     });
   };
+  // Function to handle login
   const LoginHandler = () => {
     setIsLoading(true);
     signIn("credentials", {
@@ -43,7 +52,7 @@ const LoginInform = () => {
         if (res?.error) {
           toast({
             title: "something went wrong",
-            description: res.error,
+            description: "Invalid credentials",
           });
         }
         if (res?.ok && !res?.error) {
@@ -59,22 +68,7 @@ const LoginInform = () => {
         setIsLoading(false);
       });
   };
-  // State to disable button if any of the input is empty
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  // State to store validation errors
-  const [validationErrors, setValidationErrors] = useState({
-    email: "",
-    password: "",
-  });
-  useEffect(() => {
-    setIsButtonDisabled(!loginInfo.email || !loginInfo.password);
-  }, [loginInfo]);
-  // Function to handle login
-  const handleLogin = () => {
-    if (!validateLoginInputs(loginInfo, setValidationErrors)) {
-      LoginHandler();
-    }
-  };
+
   const SocialAction = (provider: string) => {
     setIsLoading(true);
     signIn(provider, { redirect: false })
@@ -82,7 +76,7 @@ const LoginInform = () => {
         if (res?.error) {
           toast({
             title: "something went wrong",
-            description: res.error,
+            description: "Invalid credentials",
           });
         }
         if (res?.ok && !res?.error) {
@@ -94,10 +88,18 @@ const LoginInform = () => {
         }
       })
       .finally(() => {
-        ClearLoginInfo();
         setIsLoading(false);
       });
   };
+  // Function to handle login
+  const handleLogin = () => {
+    if (!validateLoginInputs(loginInfo, setValidationErrors)) {
+      LoginHandler();
+    }
+  };
+  useEffect(() => {
+    setIsButtonDisabled(!loginInfo.email || !loginInfo.password);
+  }, [loginInfo]);
   return (
     <>
       <form
