@@ -52,7 +52,7 @@ function page() {
       }}
     >
       <Heading
-        title="Conversation Chatbot"
+        title="Conversation"
         description="Engage with infinite possibilities: Embrace the Unrivaled Potential of AI Conversations"
         icon={BsChatLeftDots}
         iconColor="text-violet-500"
