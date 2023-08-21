@@ -11,8 +11,6 @@ import { BiLogoGoogle } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 const LoginInform = () => {
   const session = useSession();
-  console.log(session);
-
   const { toast } = useToast();
   const Router = useRouter();
   useEffect(() => {
