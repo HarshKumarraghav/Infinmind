@@ -1,10 +1,10 @@
 import {
   BsCameraVideo,
   BsChatLeftDots,
-  BsCode,
   BsImages,
   BsMusicNoteBeamed,
 } from "react-icons/bs";
+import { FaCode } from "react-icons/fa";
 export const ToolsData = [
   {
     id: 1,
@@ -47,7 +47,7 @@ export const ToolsData = [
     name: "Code Generation",
     route: "/dashboard/code",
     image: "/Images/tools/code.svg",
-    icon: BsCode,
+    icon: FaCode,
     description:
       "An AI tool designed to assist with coding tasks, providing suggestions, auto-completions, and even generating code snippets based on user input.",
   },

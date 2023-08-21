@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 import {
   BsCameraVideo,
   BsChatLeftDots,
-  BsCode,
   BsImages,
   BsMusicNoteBeamed,
 } from "react-icons/bs";
+import { FaCode } from "react-icons/fa";
 // import { FreeCounter } from "@/components/free-counter";
 
 const poppins = Montserrat({ weight: "600", subsets: ["latin"] });
@@ -50,7 +50,7 @@ const routes = [
   },
   {
     label: "Code Generation",
-    icon: BsCode,
+    icon: FaCode,
     color: "text-green-700",
     href: "/code",
   },
