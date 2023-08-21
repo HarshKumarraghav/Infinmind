@@ -8,7 +8,7 @@ const Navbar = () => {
   const Router = useRouter();
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-900/10 dark:border-slate-300/10">
-      <div className="container mx-auto flex flex-row justify-between items-center py-4 px-2">
+      <div className="container mx-auto flex flex-row justify-between items-center py-4 px-4">
         <div className="flex items-center justify-center md:mb-0 md:mr-4 gap-x-2">
           <Image
             width={20}
