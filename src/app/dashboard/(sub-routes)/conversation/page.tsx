@@ -1,6 +1,6 @@
-import { Sidebar } from "@/components/Navigation/Sidebar";
+import { Heading } from "@/components/Heading/Heading";
 import React from "react";
-
+import { BsChatLeftDots } from "react-icons/bs";
 type Props = {};
 
 function page({}: Props) {
@@ -12,8 +12,13 @@ function page({}: Props) {
           "radial-gradient(600px at 431px 777px, rgba(29, 78, 216, 0.15), transparent 80%)",
       }}
     >
-      hello
-      <div className="mb-8 space-y-4">hello world</div>
+      <Heading
+        title="Conversation Chatbot"
+        description="Engage with infinite possibilities: Embrace the Unrivaled Potential of AI Conversations"
+        icon={BsChatLeftDots}
+        iconColor="text-violet-500"
+        bgColor="bg-voilet-500/10"
+      />
     </div>
   );
 }
