@@ -86,7 +86,7 @@ const Signupform = () => {
           setSignupInfo({ ...signupInfo, name: e.target.value });
         }}
         required
-        className="border w-3/4 md:w-2/4 h-12 rounded-md   placeholder:font-light placeholder:p-2  focus:outline-primary text-primary p-2"
+        className="border w-3/4 md:w-2/4 h-12 rounded-md   placeholder:font-light placeholder:p-2  focus:outline-primary  p-2"
         placeholder="Full Name"
       />
       {validationErrors.name && (
@@ -99,7 +99,7 @@ const Signupform = () => {
           setSignupInfo({ ...signupInfo, email: e.target.value });
         }}
         required
-        className="border w-3/4 md:w-2/4 h-12 rounded-md   placeholder:font-light placeholder:p-2  focus:outline-primary text-primary p-2"
+        className="border w-3/4 md:w-2/4 h-12 rounded-md   placeholder:font-light placeholder:p-2  focus:outline-primary  p-2"
         placeholder="Email address"
       />
       {validationErrors.email && (
@@ -113,7 +113,7 @@ const Signupform = () => {
           setSignupInfo({ ...signupInfo, password: e.target.value });
         }}
         required
-        className="border w-3/4 md:w-2/4 h-12 rounded-md   placeholder:font-light placeholder:p-2  focus:outline-primary text-primary p-2"
+        className="border w-3/4 md:w-2/4 h-12 rounded-md   placeholder:font-light placeholder:p-2  focus:outline-primary  p-2"
         placeholder="Password"
       />
       {validationErrors.password && (

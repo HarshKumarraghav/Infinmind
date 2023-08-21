@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import type { Metadata } from "next";
 import AuthContextProvider from "@/Providers/AuthProvider";
+import ThemeProviders from "@/Providers/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <AuthContextProvider>
-          <main>{children}</main>
-          <Toaster />
-        </AuthContextProvider>
+        <ThemeProviders>
+          <AuthContextProvider>
+            <main>{children}</main>
+            <Toaster />
+          </AuthContextProvider>
+        </ThemeProviders>
       </body>
     </html>
   );

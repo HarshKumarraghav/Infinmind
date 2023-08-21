@@ -7,7 +7,7 @@ import { Input } from "../ui/input";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { signIn, useSession } from "next-auth/react";
-import { FcGoogle } from "react-icons/fc";
+import { BiLogoGoogle } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 const LoginInform = () => {
   const session = useSession();
@@ -118,7 +118,7 @@ const LoginInform = () => {
               email: e.target.value,
             });
           }}
-          className="border w-3/4 md:w-2/4 h-12 text-primary p-2"
+          className="border w-3/4 md:w-2/4 h-12 p-2"
           placeholder="Email"
         />
         {validationErrors.email && (
@@ -130,7 +130,7 @@ const LoginInform = () => {
           onChange={(e) =>
             setLoginInfo({ ...loginInfo, password: e.target.value })
           }
-          className="border w-3/4 md:w-2/4 h-12 text-primary p-2"
+          className="border w-3/4 md:w-2/4 h-12 p-2"
           placeholder="Password"
         />
         {validationErrors.password && (
@@ -156,24 +156,24 @@ const LoginInform = () => {
       <div className="w-3/4 md:w-2/4 flex-col  text-white flex gap-x-3">
         <div className="relative">
           <div className=" absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300" />
+            <div className="w-full border-t " />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="bg-white px-2 text-gray-500">
+            <span className="bg-white dark:bg-black px-2 text-gray-400">
               Or continue with
             </span>
           </div>
         </div>
         <div className="w-full mt-6 h-10 text-white flex gap-x-3">
           <Button
-            className="flex items-center w-1/2 h-full bg-primary justify-center gap-x-2"
+            className="flex items-center w-1/2 h-full bg-primary justify-center gap-x-2 text-white"
             onClick={() => SocialAction("google")}
           >
-            <FcGoogle size={20} />
+            <BiLogoGoogle size={20} />
             Google
           </Button>
           <Button
-            className="flex items-center w-1/2 h-full bg-primary justify-center gap-x-2"
+            className="flex items-center w-1/2 h-full bg-primary justify-center gap-x-2 text-white"
             onClick={() => SocialAction("github")}
           >
             <BsGithub size={20} />

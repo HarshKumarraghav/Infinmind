@@ -1,4 +1,5 @@
 "use client";
+import Navbar from "@/components/Header/Navbar";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -12,8 +13,8 @@ export default function Home() {
     }
   }, [session?.status, Router]);
   return (
-    <div className="w-screen h-screen flex flex-col lg:flex-row">
-      hrllo world
+    <div className="w-screen h-screen">
+      <Navbar />
     </div>
   );
 }
