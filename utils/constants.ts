@@ -19,8 +19,8 @@ export const ToolsData = [
     id: 2,
     name: "Music Generation",
     route: "/dashboard/music",
-    image: "/Images/tools/music.svg",
     icon: BsMusicNoteBeamed,
+    image: "/Images/tools/music.svg",
     description:
       "A tool that uses AI to compose and generate music, allowing users to create original musical pieces, melodies, and compositions.",
   },

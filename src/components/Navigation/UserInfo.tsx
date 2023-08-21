@@ -11,12 +11,12 @@ const UserInfo = () => {
       <Image
         width={20}
         height={20}
-        src="/images/logo.png"
+        src="/logo/logo.png"
         className="w-10 h-10 rounded-full"
         alt="logo"
       />
       <h1
-        onClick={() => Router.push("/")}
+        onClick={() => Router.push("/dashboard")}
         className="text-md md:text-2xl  flex gap-x-2 font-main font-bold items-end cursor-pointer"
       >
         InfiniMind.ai

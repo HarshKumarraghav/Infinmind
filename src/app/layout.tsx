@@ -8,10 +8,9 @@ export const metadata: Metadata = {
   title: "InfiniMind.ai",
   description: "InfiniMind.ai is a platform for creating and sharing ideas.",
   icons: {
-    icon: "/Images/logo.png",
+    icon: "/logo/logo.png",
   },
 };
-
 export default function RootLayout({
   children,
 }: {
