@@ -52,7 +52,7 @@ const routes = [
     label: "Code Generation",
     icon: FaCode,
     color: "text-green-700",
-    href: "/code",
+    href: "/dashboard/code",
   },
 ];
 

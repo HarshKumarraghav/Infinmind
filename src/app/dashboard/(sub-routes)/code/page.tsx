@@ -1,20 +1,21 @@
 "use client";
-import { Heading } from "@/components/Heading/Heading";
-import React, { useState } from "react";
-import axios from "axios";
-import { BsChatLeftDots } from "react-icons/bs";
 import * as z from "zod";
-import { formSchema } from "./constants";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import axios from "axios";
 import { cn } from "@/lib/utils";
+import { FaCode } from "react-icons/fa";
+import React, { useState } from "react";
+import { formSchema } from "./constants";
+import { useForm } from "react-hook-form";
+import ReactMarkdown from "react-markdown";
+import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
 import { BiBot, BiUser } from "react-icons/bi";
+import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Heading } from "@/components/Heading/Heading";
 import { EveryTask } from "@/components/UIStates/EveryTask";
-function ConversationPage() {
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+function CodePage() {
   const Router = useRouter();
   const [messages, setMessages] = useState<any>([]);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -32,7 +33,7 @@ function ConversationPage() {
         content: values.prompt,
       };
       const newMessages = [...messages, userMessage];
-      const response = await axios.post("/api/conversation", {
+      const response = await axios.post("/api/code", {
         messages: newMessages,
       });
       setMessages((prev: any) => [...prev, response.data, userMessage]);
@@ -52,11 +53,11 @@ function ConversationPage() {
       }}
     >
       <Heading
-        title="Conversation"
-        description="Engage with infinite possibilities: Embrace the Unrivaled Potential of AI Conversations"
-        icon={BsChatLeftDots}
-        iconColor="text-violet-500"
-        bgColor="bg-voilet-500/10"
+        title="Code Generation"
+        description="Explore Endless Horizons: Embrace the Unmatched Power of AI Conversations for Code Generation"
+        icon={FaCode}
+        iconColor="text-green-700"
+        bgColor="bg-green-700/10"
       />
       <div className="px-4 lg:px-8">
         <div>
@@ -73,7 +74,7 @@ function ConversationPage() {
                       <Input
                         className="border-0 outline-none shadow-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Write a story about a time-traveler on a mission to save the future..."
+                        placeholder="factorial function in Javascript"
                         {...field}
                       />
                     </FormControl>
@@ -112,7 +113,21 @@ function ConversationPage() {
                     <BiBot size={30} />
                   </div>
                 )}
-                <p className="text-sm">{message.content}</p>
+                <ReactMarkdown
+                  components={{
+                    pre: ({ node, ...props }) => (
+                      <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                        <pre {...props} />
+                      </div>
+                    ),
+                    code: ({ node, ...props }) => (
+                      <code className="bg-black/10 rounded-lg p-1" {...props} />
+                    ),
+                  }}
+                  className="text-sm overflow-hidden leading-7"
+                >
+                  {message.content || ""}
+                </ReactMarkdown>
               </div>
             ))}
           </div>
@@ -122,4 +137,4 @@ function ConversationPage() {
   );
 }
 
-export default ConversationPage;
+export default CodePage;
