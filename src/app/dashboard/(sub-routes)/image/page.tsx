@@ -71,8 +71,8 @@ function ImagePage() {
         title="Image Generation"
         description="Explore Endless Horizons: Embrace the Unmatched Power of AI Conversations for Image Generation"
         icon={BsImages}
-        iconColor="text-violet-500"
-        bgColor="bg-voilet-500/10"
+        iconColor="text-pink-700"
+        bgColor="bg-pink-700/10"
       />
       <div className="px-4 lg:px-8">
         <div>
@@ -89,7 +89,7 @@ function ImagePage() {
                       <Input
                         className="border-0 outline-none shadow-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="A picture of elon musk driving a tesla in space and a doge coin in his hand"
+                        placeholder="A picture of a boy driving a tesla in space and a doge coin in his hand"
                         {...field}
                       />
                     </FormControl>
