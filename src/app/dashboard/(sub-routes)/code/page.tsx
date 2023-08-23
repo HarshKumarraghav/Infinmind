@@ -57,7 +57,7 @@ function CodePage() {
         description="Explore Endless Horizons: Embrace the Unmatched Power of AI Conversations for Code Generation"
         icon={FaCode}
         iconColor="text-primary"
-        bgColor="bg-primary/10"
+        bgColor="bg-primary/20"
       />
       <div className="px-4 lg:px-8">
         <div>

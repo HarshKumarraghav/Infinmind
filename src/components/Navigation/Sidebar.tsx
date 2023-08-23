@@ -93,9 +93,9 @@ export const Sidebar = ({
               key={route.href}
               href={route.href}
               className={cn(
-                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-gray-700 hover:bg-primary/10 rounded-lg transition",
+                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-gray-700 hover:bg-primary/20 rounded-lg transition",
                 pathname === route.href
-                  ? "bg-primary/10 text-gray-700 dark:text-gray-200"
+                  ? "bg-primary/20 text-gray-700 dark:text-gray-200"
                   : "text-gray-500 dark:text-gray-400"
               )}
             >

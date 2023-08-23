@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { EveryTask } from "@/components/UIStates/EveryTask";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "../../../../../hooks/use-toast";
 function MusicPage() {
   const Router = useRouter();
   const [music, setMusic] = useState<string>();
@@ -59,7 +59,7 @@ function MusicPage() {
         description="Engage in the creative process: Embrace the Unrivaled Potential of AI Music Generation"
         icon={BsMusicNoteBeamed}
         iconColor="text-primary"
-        bgColor="bg-primary/10"
+        bgColor="bg-primary/20"
       />
       <div className="px-4 lg:px-8">
         <div>

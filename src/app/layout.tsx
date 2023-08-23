@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import AuthContextProvider from "@/Providers/AuthProvider";
 import ThemeProviders from "@/Providers/ThemeProvider";
 import NextTopLoader from "nextjs-toploader";
+import { ModalProvider } from "@/Providers/ModalProvider";
 export const metadata: Metadata = {
   title: "InfiniMind.ai",
   description: "InfiniMind.ai is a platform for creating and sharing ideas.",
@@ -31,6 +32,7 @@ export default function RootLayout({
           shadow="0 0 10px #2299DD,0 0 5px #2299DD"
         />
         <ThemeProviders>
+          <ModalProvider />
           <AuthContextProvider>
             <main>{children}</main>
             <Toaster />

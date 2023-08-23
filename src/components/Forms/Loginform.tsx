@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { Input } from "../ui/input";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "../../../hooks/use-toast";
 import { signIn, useSession } from "next-auth/react";
 import { BiLogoGoogle } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";

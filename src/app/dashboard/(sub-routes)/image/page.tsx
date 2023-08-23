@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { EveryTask } from "@/components/UIStates/EveryTask";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "../../../../../hooks/use-toast";
 import Image from "next/image";
 import { Card, CardFooter } from "@/components/ui/card";
 import {
@@ -72,7 +72,7 @@ function ImagePage() {
         description="Explore Endless Horizons: Embrace the Unmatched Power of AI Conversations for Image Generation"
         icon={BsImages}
         iconColor="text-primary"
-        bgColor="bg-primary/10"
+        bgColor="bg-primary/20"
       />
       <div className="px-4 lg:px-8">
         <div>

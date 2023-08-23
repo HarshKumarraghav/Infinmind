@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { EveryTask } from "@/components/UIStates/EveryTask";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "../../../../../hooks/use-toast";
 function VideoPage() {
   const Router = useRouter();
   const [video, setVideo] = useState<string>();
@@ -59,7 +59,7 @@ function VideoPage() {
         description="Engage in the creative process: Embrace the Unrivaled Potential of AI Video Generation"
         icon={BsCameraVideo}
         iconColor="text-primary"
-        bgColor="bg-primary/10"
+        bgColor="bg-primary/20"
       />
 
       <div className="px-4 lg:px-8">
