@@ -2,7 +2,7 @@
 import { Heading } from "@/components/Heading/Heading";
 import React, { useState } from "react";
 import axios from "axios";
-import { BsChatLeftDots, BsMusicNoteBeamed } from "react-icons/bs";
+import { BsCameraVideo } from "react-icons/bs";
 import * as z from "zod";
 import { formSchema } from "./constants";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,9 +13,9 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { EveryTask } from "@/components/UIStates/EveryTask";
 import { toast } from "@/hooks/use-toast";
-function MusicPage() {
+function VideoPage() {
   const Router = useRouter();
-  const [music, setMusic] = useState<string>();
+  const [video, setVideo] = useState<string>();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -26,12 +26,11 @@ function MusicPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      setMusic(undefined);
+      setVideo(undefined);
 
-      const response = await axios.post("/api/music", values);
-      console.log(response);
+      const response = await axios.post("/api/video", values);
 
-      setMusic(response.data.audio);
+      setVideo(response.data[0]);
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
@@ -46,6 +45,7 @@ function MusicPage() {
       Router.refresh();
     }
   };
+
   return (
     <div
       className="w-full min-h-[calc(100vh-8rem)]"
@@ -55,12 +55,13 @@ function MusicPage() {
       }}
     >
       <Heading
-        title="Music Generation"
-        description="Engage in the creative process: Embrace the Unrivaled Potential of AI Music Generation"
-        icon={BsMusicNoteBeamed}
-        iconColor="text-emerald-500"
-        bgColor="bg-emerald-500/10"
+        title="Video Generation"
+        description="Engage in the creative process: Embrace the Unrivaled Potential of AI Video Generation"
+        icon={BsCameraVideo}
+        iconColor="text-orange-700"
+        bgColor="bg-orange-700/10"
       />
+
       <div className="px-4 lg:px-8">
         <div>
           <Form {...form}>
@@ -76,7 +77,7 @@ function MusicPage() {
                       <Input
                         className="border-0 outline-none shadow-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Music like `Your lies in April`"
+                        placeholder="Luffy and zoro vs Kaido"
                         {...field}
                       />
                     </FormControl>
@@ -93,13 +94,16 @@ function MusicPage() {
           <div className="flex flex-col-reverse gap-y-4">
             {isLoading && <EveryTask label="Loading...." />}
 
-            {!music && !isLoading && (
-              <EveryTask label="no music generated yet..." />
+            {!video && !isLoading && (
+              <EveryTask label="no video generated yet..." />
             )}
-            {music && (
-              <audio controls className="w-full mt-8">
-                <source src={music} />
-              </audio>
+            {video && (
+              <video
+                controls
+                className="w-full aspect-video mt-8 rounded-lg border bg-black"
+              >
+                <source src={video} />
+              </video>
             )}
           </div>
         </div>
@@ -108,4 +112,4 @@ function MusicPage() {
   );
 }
 
-export default MusicPage;
+export default VideoPage;

@@ -5,6 +5,8 @@ import {
   BsMusicNoteBeamed,
 } from "react-icons/bs";
 import { FaCode } from "react-icons/fa";
+
+export const MAX_FREE_COUNTS = 5;
 export const ToolsData = [
   {
     id: 1,
