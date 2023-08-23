@@ -2,7 +2,7 @@
 import { Heading } from "@/components/Heading/Heading";
 import React, { useState } from "react";
 import axios from "axios";
-import { BsChatLeftDots } from "react-icons/bs";
+import { BsChatLeftDots, BsMusicNoteBeamed } from "react-icons/bs";
 import * as z from "zod";
 import { formSchema } from "./constants";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,12 +11,11 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { BiBot, BiUser } from "react-icons/bi";
 import { EveryTask } from "@/components/UIStates/EveryTask";
-function ConversationPage() {
+import { toast } from "@/hooks/use-toast";
+function MusicPage() {
   const Router = useRouter();
-  const [messages, setMessages] = useState<any>([]);
+  const [music, setMusic] = useState<string>();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -27,36 +26,40 @@ function ConversationPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage = {
-        role: "user",
-        content: values.prompt,
-      };
-      const newMessages = [...messages, userMessage];
-      const response = await axios.post("/api/conversation", {
-        messages: newMessages,
-      });
-      setMessages((prev: any) => [...prev, response.data, userMessage]);
+      setMusic(undefined);
+
+      const response = await axios.post("/api/music", values);
+      console.log(response);
+
+      setMusic(response.data.audio);
       form.reset();
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        // proModal.onOpen();
+      } else {
+        toast({
+          title: "something went wrong",
+          description: "Invalid openai credentials",
+        });
+      }
     } finally {
       Router.refresh();
     }
   };
   return (
     <div
-      className="w-full"
+      className="w-full min-h-[calc(100vh-8rem)]"
       style={{
         background:
           "radial-gradient(400px at 351px 297px, rgba(29, 78, 216, 0.15), transparent 80%)",
       }}
     >
       <Heading
-        title="Conversation"
-        description="Engage with infinite possibilities: Embrace the Unrivaled Potential of AI Conversations"
-        icon={BsChatLeftDots}
-        iconColor="text-violet-500"
-        bgColor="bg-voilet-500/10"
+        title="Music Generation"
+        description="Engage in the creative process: Embrace the Unrivaled Potential of AI Music Generation"
+        icon={BsMusicNoteBeamed}
+        iconColor="text-emerald-500"
+        bgColor="bg-emerald-500/10"
       />
       <div className="px-4 lg:px-8">
         <div>
@@ -73,7 +76,7 @@ function ConversationPage() {
                       <Input
                         className="border-0 outline-none shadow-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Write a story about a time-traveler on a mission to save the future..."
+                        placeholder="Music like `Your lies in April`"
                         {...field}
                       />
                     </FormControl>
@@ -90,31 +93,14 @@ function ConversationPage() {
           <div className="flex flex-col-reverse gap-y-4">
             {isLoading && <EveryTask label="Loading...." />}
 
-            {messages.length === 0 && !isLoading && (
-              <EveryTask label="No conversation started." />
+            {!music && !isLoading && (
+              <EveryTask label="no music generated yet..." />
             )}
-            {messages.map((message: any) => (
-              <div
-                key={message.content}
-                className={cn(
-                  "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user"
-                    ? "bg-primary/20 border border-black/10"
-                    : "bg-primary-foreground border"
-                )}
-              >
-                {message.role === "user" ? (
-                  <div className="p-3 rounded-full bg-primary text-white">
-                    <BiUser size={30} />
-                  </div>
-                ) : (
-                  <div className="p-3 rounded-full bg-primary text-white">
-                    <BiBot size={30} />
-                  </div>
-                )}
-                <p className="text-sm">{message.content}</p>
-              </div>
-            ))}
+            {music && (
+              <audio controls className="w-full mt-8">
+                <source src={music} />
+              </audio>
+            )}
           </div>
         </div>
       </div>
@@ -122,4 +108,4 @@ function ConversationPage() {
   );
 }
 
-export default ConversationPage;
+export default MusicPage;

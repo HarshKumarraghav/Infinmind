@@ -158,11 +158,15 @@ function ImagePage() {
         </div>
         <div className="space-y-4 mt-4">
           <div className="flex flex-col-reverse gap-y-4">
-            {isLoading && <EveryTask label="Loading...." />}
-
-            {Image.length === 0 && !isLoading && (
-              <EveryTask label="No conversation started." />
+            {isLoading && (
+              <div className="p-20">
+                <EveryTask label="loading..." />
+              </div>
             )}
+            {photos.length === 0 && !isLoading && (
+              <EveryTask label="No images generated yet..." />
+            )}
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
               {photos.map((src) => (
                 <Card key={src} className="rounded-lg overflow-hidden">
