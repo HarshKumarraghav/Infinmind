@@ -1,4 +1,5 @@
 "use client";
+import MainCards from "@/components/Dashboard/MainCards";
 import Navbar from "@/components/Navigation/Navbar";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <div className="w-screen h-screen">
       <Navbar />
+      <MainCards />
     </div>
   );
 }

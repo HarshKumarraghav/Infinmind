@@ -13,6 +13,7 @@ import {
   BsMusicNoteBeamed,
 } from "react-icons/bs";
 import { FaCode } from "react-icons/fa";
+import { FreeCounter } from "../UIStates/FreeCounter";
 // import { FreeCounter } from "@/components/free-counter";
 
 const poppins = Montserrat({ weight: "600", subsets: ["latin"] });
@@ -106,7 +107,7 @@ export const Sidebar = ({
           ))}
         </div>
       </div>
-      {/* <FreeCounter apiLimitCount={apiLimitCount} isPro={isPro} /> */}
+      <FreeCounter apiLimitCount={apiLimitCount} isPro={isPro} />
     </div>
   );
 };

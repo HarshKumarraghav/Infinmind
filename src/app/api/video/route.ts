@@ -1,7 +1,8 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
-
+import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subcription";
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_KEY!,
 });
@@ -9,7 +10,6 @@ const replicate = new Replicate({
 export async function POST(req: Request) {
   try {
     const User: any = await getCurrentUser();
-
     const body = await req.json();
     const { prompt } = body;
     if (!User) {
@@ -23,7 +23,8 @@ export async function POST(req: Request) {
     if (!prompt) {
       return new NextResponse("Message is required", { status: 400 });
     }
-
+    const freeTrial = await checkApiLimit();
+    const isPro = await checkSubscription();
     const response = await replicate.run(
       "anotherjesse/zeroscope-v2-xl:71996d331e8ede8ef7bd76eba9fae076d31792e4ddf4ad057779b443d6aea62f",
       {
@@ -32,6 +33,10 @@ export async function POST(req: Request) {
         },
       }
     );
+
+    if (!isPro) {
+      await incrementApiLimit();
+    }
     return new NextResponse(JSON.stringify(response));
   } catch (error) {
     console.error(error);
