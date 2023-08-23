@@ -71,8 +71,8 @@ function ImagePage() {
         title="Image Generation"
         description="Explore Endless Horizons: Embrace the Unmatched Power of AI Conversations for Image Generation"
         icon={BsImages}
-        iconColor="text-pink-700"
-        bgColor="bg-pink-700/10"
+        iconColor="text-primary"
+        bgColor="bg-primary/10"
       />
       <div className="px-4 lg:px-8">
         <div>

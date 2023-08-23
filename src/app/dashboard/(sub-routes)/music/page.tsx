@@ -58,8 +58,8 @@ function MusicPage() {
         title="Music Generation"
         description="Engage in the creative process: Embrace the Unrivaled Potential of AI Music Generation"
         icon={BsMusicNoteBeamed}
-        iconColor="text-emerald-500"
-        bgColor="bg-emerald-500/10"
+        iconColor="text-primary"
+        bgColor="bg-primary/10"
       />
       <div className="px-4 lg:px-8">
         <div>

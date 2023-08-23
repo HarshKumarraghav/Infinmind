@@ -58,8 +58,8 @@ function VideoPage() {
         title="Video Generation"
         description="Engage in the creative process: Embrace the Unrivaled Potential of AI Video Generation"
         icon={BsCameraVideo}
-        iconColor="text-orange-700"
-        bgColor="bg-orange-700/10"
+        iconColor="text-primary"
+        bgColor="bg-primary/10"
       />
 
       <div className="px-4 lg:px-8">

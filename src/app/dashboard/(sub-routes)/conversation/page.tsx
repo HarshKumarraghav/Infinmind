@@ -55,8 +55,8 @@ function ConversationPage() {
         title="Conversation"
         description="Engage with infinite possibilities: Embrace the Unrivaled Potential of AI Conversations"
         icon={BsChatLeftDots}
-        iconColor="text-violet-500"
-        bgColor="bg-voilet-500/10"
+        iconColor="text-primary"
+        bgColor="bg-primary/10"
       />
       <div className="px-4 lg:px-8">
         <div>
