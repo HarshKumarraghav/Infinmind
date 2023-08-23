@@ -19,8 +19,10 @@ const MainCards = () => {
           <CardHeader className="flex justify-between flex-row items-center border-b ">
             <Link href={tool.route}>
               <CardTitle className="flex items-center gap-x-2">
-                <div className="p-3 bg-primary text-white rounded-full">
-                  {React.createElement(tool?.icon, { size: "20" })}
+                <div className="p-2 w-fit rounded-md bg-primary/20">
+                  {React.createElement(tool?.icon, {
+                    className: "w-6 h-6 text-primary",
+                  })}
                 </div>
                 <p>{tool.name}</p>
               </CardTitle>
