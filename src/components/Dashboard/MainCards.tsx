@@ -15,7 +15,7 @@ const MainCards = () => {
   return (
     <div className="flex flex-row justify-center items-center flex-wrap gap-4 px-4 py-4">
       {ToolsData.map((tool) => (
-        <Card className="w-96 h-96">
+        <Card className="w-96 h-96" key={tool.id}>
           <CardHeader className="flex justify-between flex-row items-center border-b ">
             <Link href={tool.route}>
               <CardTitle className="flex items-center gap-x-2">

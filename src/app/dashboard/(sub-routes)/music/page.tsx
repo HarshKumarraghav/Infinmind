@@ -2,7 +2,7 @@
 import { Heading } from "@/components/Heading/Heading";
 import React, { useState } from "react";
 import axios from "axios";
-import { BsChatLeftDots, BsMusicNoteBeamed } from "react-icons/bs";
+import { BsMusicNoteBeamed } from "react-icons/bs";
 import * as z from "zod";
 import { formSchema } from "./constants";
 import { zodResolver } from "@hookform/resolvers/zod";

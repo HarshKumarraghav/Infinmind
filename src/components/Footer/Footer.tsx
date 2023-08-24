@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BiLocationPlus } from "react-icons/bi";
 import { BsTelephoneFill } from "react-icons/bs";
@@ -12,8 +13,10 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
             <div className="w-full md:w-1/3">
               <h1 className="text-2xl  flex gap-x-2   mb-2  font-main font-bold items-center cursor-pointer">
-                <img
-                  src="/logo/Logo.png"
+                <Image
+                  src="/logo/logo.png"
+                  width={40}
+                  height={40}
                   className="w-10 h-10  rounded-full"
                   alt=""
                 />
@@ -23,7 +26,7 @@ const Footer = () => {
                 InfiniMind.AI: The ultimate destination where human creativity
                 intersects with the power of artificial intelligence. Unleash
                 the full potential of your imagination and bring your ideas to
-                life in ways you've never imagined.
+                life in ways you&apos;ve never imagined.
               </p>
             </div>
             <div className="w-full md:w-1/3">

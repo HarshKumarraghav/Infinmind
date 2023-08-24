@@ -38,7 +38,7 @@ const page = () => {
         <div className="w-full flex items-center flex-col">
           <h1 className="text-xl w-3/4 md:w-2/4 ">Welcome to the InfiniMind</h1>
           <h1 className="text-2xl w-3/4 md:w-2/4 ">
-            Let's create your account.
+            Let&apos;s create your account.
           </h1>
         </div>
         <Signupform />

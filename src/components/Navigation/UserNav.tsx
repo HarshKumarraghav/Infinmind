@@ -13,17 +13,14 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { signOut } from "next-auth/react";
 import { User } from "@prisma/client";
-import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "../../../hooks/use-toast";
 import Link from "next/link";
 interface UserNavProps {
-  currentUser: User;
+  currentUser: User | undefined;
 }
 const UserNav = ({ currentUser }: UserNavProps) => {
-  const { name, email, image } = currentUser;
-  const Router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async () => {
@@ -48,9 +45,12 @@ const UserNav = ({ currentUser }: UserNavProps) => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-10 w-10">
-            <AvatarImage src={image || "john doe"} alt={name || "john doe"} />
+            <AvatarImage
+              src={currentUser?.image || "john doe"}
+              alt={currentUser?.name || "john doe"}
+            />
             <AvatarFallback>
-              {name?.charAt(0).toUpperCase() || "JD"}
+              {currentUser?.name?.charAt(0).toUpperCase() || "JD"}
             </AvatarFallback>
           </Avatar>
         </Button>
@@ -59,10 +59,10 @@ const UserNav = ({ currentUser }: UserNavProps) => {
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">
-              {name || "john doe"}
+              {currentUser?.name || "john doe"}
             </p>
             <p className="text-xs leading-none text-muted-foreground">
-              {email || "john@doe.com"}
+              {currentUser?.email || "john@doe.com"}
             </p>
           </div>
         </DropdownMenuLabel>

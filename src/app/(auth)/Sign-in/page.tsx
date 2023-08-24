@@ -35,14 +35,14 @@ const page = () => {
         }}
       >
         <div className="w-full flex items-center flex-col">
-          <h1 className="text-2xl w-3/4 md:w-2/4 ">Let's sign you in.</h1>
+          <h1 className="text-2xl w-3/4 md:w-2/4 ">Let&apos;s sign you in.</h1>
           <h1 className="text-xl w-3/4 md:w-2/4 ">
-            Welcome back. You've been missed!
+            Welcome back. You&apos;ve been missed!
           </h1>
         </div>
         <LoginInform />
         <div>
-          Don't have an account?&nbsp;
+          Don&apos;t have an account?&nbsp;
           <Link
             href="/sign-up"
             className="text-primary font-semibold cursor-pointer"
