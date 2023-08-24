@@ -28,7 +28,7 @@ const LandingNavbar = () => {
         <div className="flex items-center space-x-4">
           <ThemeSwitcher />
           <button
-            onClick={() => Router.push("/sign-in")}
+            onClick={() => Router.push("/signin")}
             className="bg-primary py-2 px-4 rounded-full text-[10px]  md:text-sm text-white focus:outline-none hover__button"
           >
             Try Now
