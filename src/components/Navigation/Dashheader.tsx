@@ -3,10 +3,11 @@ import ThemeSwitcher from "../Theme/ThemeSwitcher";
 import UserNav from "./UserNav";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { MobileSidebar } from "./MobileSidebar";
+import { getApiLimitCount } from "@/lib/api-limit";
 
 const Dashheader = async () => {
-  const apiLimitCount = 0;
   const isPro = false;
+  const apiLimitCount = await getApiLimitCount();
   const currentUser: any = await getCurrentUser();
   return (
     <div className="w-full h-14 border-b border-slate-900/10 dark:border-slate-300/10">
