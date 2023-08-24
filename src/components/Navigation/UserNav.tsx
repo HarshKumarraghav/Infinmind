@@ -13,11 +13,35 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { signOut } from "next-auth/react";
 import { User } from "@prisma/client";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import { useState } from "react";
+import { toast } from "../../../hooks/use-toast";
 interface UserNavProps {
   currentUser: User;
 }
 const UserNav = ({ currentUser }: UserNavProps) => {
   const { name, email, image } = currentUser;
+  const Router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async () => {
+    try {
+      setLoading(true);
+
+      const response = await axios.get("/api/stripe");
+
+      window.location.href = response.data.url;
+    } catch (error) {
+      toast({
+        title: "Something went wrong.",
+        description:
+          "Please try again later. If the problem persists, contact support.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -47,15 +71,18 @@ const UserNav = ({ currentUser }: UserNavProps) => {
             Profile
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={onSubmit}>
             Billing
             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => {
+              Router.push("/settings");
+            }}
+          >
             Settings
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>New Team</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem

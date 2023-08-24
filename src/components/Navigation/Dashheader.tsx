@@ -4,9 +4,10 @@ import UserNav from "./UserNav";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { MobileSidebar } from "./MobileSidebar";
 import { getApiLimitCount } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subcription";
 
 const Dashheader = async () => {
-  const isPro = false;
+  const isPro = await checkSubscription();
   const apiLimitCount = await getApiLimitCount();
   const currentUser: any = await getCurrentUser();
   return (

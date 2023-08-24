@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+
 import React from "react";
 import ThemeSwitcher from "../Theme/ThemeSwitcher";
+import { useRouter } from "next/navigation";
 
-const Navbar = () => {
+const LandingNavbar = () => {
   const Router = useRouter();
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-900/10 dark:border-slate-300/10">
@@ -38,4 +39,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default LandingNavbar;

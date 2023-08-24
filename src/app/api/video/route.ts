@@ -1,8 +1,8 @@
-import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subcription";
+import getCurrentUser from "@/app/actions/getCurrentUser";
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_KEY!,
 });
