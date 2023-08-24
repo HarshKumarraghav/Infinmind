@@ -28,7 +28,7 @@ const page = () => {
         <Image
           width={100}
           height={100}
-          src="/images/login.svg"
+          src="/Images/authimg.svg"
           alt=""
           className="w-full h-full"
         />
