@@ -13,7 +13,9 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { EveryTask } from "@/components/UIStates/EveryTask";
 import { toast } from "../../../../../hooks/use-toast";
+import { useProModal } from "../../../../../hooks/use-pro-modal";
 function VideoPage() {
+  const proModal = useProModal();
   const Router = useRouter();
   const [video, setVideo] = useState<string>();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -34,11 +36,12 @@ function VideoPage() {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        // proModal.onOpen();
+        proModal.openModal();
       } else {
         toast({
           title: "something went wrong",
-          description: "Invalid replicate credentials",
+          description:
+            "please try again later. If the problem persists, please contact us.",
         });
       }
     } finally {

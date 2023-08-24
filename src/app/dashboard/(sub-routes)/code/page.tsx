@@ -15,7 +15,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Heading } from "@/components/Heading/Heading";
 import { EveryTask } from "@/components/UIStates/EveryTask";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { useProModal } from "../../../../../hooks/use-pro-modal";
+import { toast } from "../../../../../hooks/use-toast";
 function CodePage() {
+  const proModal = useProModal();
   const Router = useRouter();
   const [messages, setMessages] = useState<any>([]);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -38,8 +41,16 @@ function CodePage() {
       });
       setMessages((prev: any) => [...prev, response.data, userMessage]);
       form.reset();
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.openModal();
+      } else {
+        toast({
+          title: "something went wrong",
+          description:
+            "please try again later. If the problem persists, please contact us.",
+        });
+      }
     } finally {
       Router.refresh();
     }

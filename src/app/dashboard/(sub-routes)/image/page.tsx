@@ -22,7 +22,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useProModal } from "../../../../../hooks/use-pro-modal";
 function ImagePage() {
+  const proModal = useProModal();
   const Router = useRouter();
   const [photos, setPhotos] = useState<string[]>([]);
 
@@ -48,11 +50,12 @@ function ImagePage() {
       setPhotos(urls);
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        // proModal.onOpen();
+        proModal.openModal();
       } else {
         toast({
           title: "something went wrong",
-          description: "Invalid openai credentials",
+          description:
+            "please try again later. If the problem persists, please contact us.",
         });
       }
     } finally {
