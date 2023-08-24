@@ -18,13 +18,7 @@ const page = () => {
           <ArrowLeftIcon />
         </Link>
       </div>
-      <div
-        className="lg:w-1/2 lg:h-full h-1/3 flex flex-col lg:justify-center items-center py-3 gap-3 "
-        style={{
-          background:
-            "radial-gradient(400px at 351px 97px, rgba(29, 78, 216, 0.15), transparent 80%)",
-        }}
-      >
+      <div className="lg:w-1/2 lg:h-full h-1/3 flex flex-col lg:justify-center items-center py-3 gap-3 ">
         <Image
           width={100}
           height={100}

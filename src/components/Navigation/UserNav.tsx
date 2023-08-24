@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "../../../hooks/use-toast";
+import Link from "next/link";
 interface UserNavProps {
   currentUser: User;
 }
@@ -75,14 +76,12 @@ const UserNav = ({ currentUser }: UserNavProps) => {
             Billing
             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() => {
-              Router.push("/settings");
-            }}
-          >
-            Settings
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
+          <Link href={"/settings"}>
+            <DropdownMenuItem>
+              Settings
+              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+            </DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem

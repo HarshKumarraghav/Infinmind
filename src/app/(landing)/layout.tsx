@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer/Footer";
 import LandingNavbar from "@/components/Navigation/LandingNavbar";
 
 const LandingLayout = ({ children }: { children: React.ReactNode }) => {
@@ -11,6 +12,7 @@ const LandingLayout = ({ children }: { children: React.ReactNode }) => {
     >
       <LandingNavbar />
       <div className="mx-auto max-w-screen-xl h-full w-full">{children}</div>
+      <Footer />
     </main>
   );
 };

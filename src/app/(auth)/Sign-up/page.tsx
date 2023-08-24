@@ -34,13 +34,7 @@ const page = () => {
         />
       </div>
 
-      <div
-        className="lg:w-1/2 lg:h-full lg:justify-evenly lg:bg-primary-light w-full h-2/3 flex flex-col items-center justify-evenly py-5"
-        style={{
-          background:
-            "radial-gradient(400px at 351px 97px, rgba(29, 78, 216, 0.15), transparent 80%)",
-        }}
-      >
+      <div className="lg:w-1/2 lg:h-full lg:justify-evenly lg:bg-primary-light w-full h-2/3 flex flex-col items-center justify-evenly py-5">
         <div className="w-full flex items-center flex-col">
           <h1 className="text-xl w-3/4 md:w-2/4 ">Welcome to the InfiniMind</h1>
           <h1 className="text-2xl w-3/4 md:w-2/4 ">
