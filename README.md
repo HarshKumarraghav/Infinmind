@@ -26,10 +26,6 @@ Engage in captivating conversations with our advanced AI chatbot, which not only
 
 https://infinimind.harshraghav.tech
 
-## Video Demo
-
-https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/d7ae133d-e686-41f9-bcdb-ffb08e752d24
-
 ## 🛠️ Tech Stack Used in Infinimind.ai:
 
 - **NextJS 13:** A popular JavaScript library for building user interfaces, providing a fast and responsive application.
@@ -40,22 +36,6 @@ https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/d7ae133d-e68
 - **Vercel:** A cloud platform for static sites and Serverless Functions that fits perfectly with your workflow. It enables developers to host Jamstack websites and web services that deploy instantly, scale automatically, and requires no supervision, all with no configuration.
 - **OpenAI API:** The OpenAI API provides a general-purpose "text in, text out" interface, allowing users to try it on virtually any English language task. You can test it out in the playground below, or read more about it in the documentation.
 - **Replicate:** Replicate is a platform for building and deploying AI applications. It provides a simple interface for training and deploying models, and a marketplace for sharing them.
-
-# Page Screenshot
-
-## Home Page
-
-<img width="1440" alt="poster1" src="https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/50415cf5-1463-43fc-a48c-326b31fa7a2d">
-
-## Profile Page
-
-### Light
-
-<img width="1440" alt="poster2" src="https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/ee8f496d-de49-43d2-b8b8-2f4ac40e274d">
-
-### Dark
-
-<img width="1440" alt="poster3" src="https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/10048ae7-61ea-4b51-99eb-c465c63a93b2">
 
 ---
 
