@@ -35,6 +35,7 @@ https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/d7ae133d-e68
 - **NextJS 13:** A popular JavaScript library for building user interfaces, providing a fast and responsive application.
 - **TailwindCSS:** A utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup.
 - **Next Auth:** An easy to use, extensible authentication library for Next.js.
+- **SchadCn UI:** A set of accessible, reusable, and composable React components for building websites and applications.
 - **Planetscale:** A database platform for modern applications.
 - **Vercel:** A cloud platform for static sites and Serverless Functions that fits perfectly with your workflow. It enables developers to host Jamstack websites and web services that deploy instantly, scale automatically, and requires no supervision, all with no configuration.
 - **OpenAI API:** The OpenAI API provides a general-purpose "text in, text out" interface, allowing users to try it on virtually any English language task. You can test it out in the playground below, or read more about it in the documentation.
