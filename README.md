@@ -5,7 +5,7 @@
 </p>
 <p align="center">
 
-<img width="150" alt="poster1" src="https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/7ea15705-6785-40c5-95f3-183cac18121d">
+<img width="150" alt="poster1" src="https://github.com/HarshKumarraghav/InfiniMind.ai/assets/72187191/dc2c05d0-e0a6-4f36-8017-f73a312223b2">
 
 </p>
 
