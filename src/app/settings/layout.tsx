@@ -3,7 +3,7 @@ import Dashheader from "@/components/Navigation/Dashheader";
 import { getApiLimitCount } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subcription";
 
-const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
+const SettingLayout = async ({ children }: { children: React.ReactNode }) => {
   const apiLimitCount = await getApiLimitCount();
   const isPro = await checkSubscription();
   return (
@@ -19,4 +19,4 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default DashboardLayout;
+export default SettingLayout;
