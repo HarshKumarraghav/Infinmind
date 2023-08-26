@@ -39,6 +39,10 @@ https://infinimind.harshraghav.tech
 
 ---
 
+# Video Demo:
+
+https://github.com/HarshKumarraghav/InfiniMind.ai/assets/72187191/ae1ebb65-6b3a-40b0-9c03-849142acec92
+
 ## 💻 Development
 
 ### Install Repository
