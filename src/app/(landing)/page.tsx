@@ -14,7 +14,7 @@ export default function Home() {
         </span>{" "}
         Demo Video
       </h1>
-      <div className="bg-primary p-8 m-8 rounded-3xl">
+      <div className="bg-gradient-to-r from-red-500 to-orange-500 p-8 m-8 rounded-3xl">
         <video
           className="shadow-2xl rounded-3xl"
           controls
