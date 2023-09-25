@@ -1,12 +1,16 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
+import { Configuration, OpenAIApi } from "openai-edge";
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subcription";
-const openai = new OpenAI({
+import { OpenAIStream, StreamingTextResponse } from "ai";
+
+export const runtime = "edge";
+
+const config = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
+const openai = new OpenAIApi(config);
 export async function POST(req: Request) {
   try {
     const User: any = await getCurrentUser();
@@ -15,7 +19,7 @@ export async function POST(req: Request) {
     if (!User) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
-    if (!openai.apiKey) {
+    if (!config.apiKey) {
       return new NextResponse("OpenAI Api is not configured", { status: 500 });
     }
     if (!messages) {
@@ -32,14 +36,16 @@ export async function POST(req: Request) {
       );
     }
 
-    const response = await openai.chat.completions.create({
+    const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages,
+      stream: true,
     });
     if (!isPro) {
       await incrementApiLimit();
     }
-    return new NextResponse(JSON.stringify(response.choices[0].message));
+    const stream = OpenAIStream(response);
+    return new StreamingTextResponse(stream);
   } catch (error) {
     console.error(error);
     return new NextResponse("Internal Server Error", { status: 500 });
