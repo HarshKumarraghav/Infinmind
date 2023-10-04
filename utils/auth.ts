@@ -15,7 +15,7 @@ export const validateLoginInputs = (
     errors.email = "Please enter a valid email address";
   }
 
-  // Validate password
+  // Validate password for login and signup
   if (!loginInfo.password) {
     errors.password = "Please enter a password";
   } else if (loginInfo.password.length < 8) {
